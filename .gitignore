@@ -1,1 +1,7 @@
 .settings/*
+bin/*
+DesignNotes
+/bin/
+.project
+.DS_Store
+
