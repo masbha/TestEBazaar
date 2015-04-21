@@ -14,6 +14,7 @@ import middleware.DbConfigProperties;
 import middleware.externalinterfaces.DbConfigKey;
 import alltests.AllTests;
 import business.customersubsystem.AddressImpl;
+import business.customersubsystem.CreditCardImpl;
 import business.customersubsystem.CustomerSubsystemFacade;
 import business.externalinterfaces.Address;
 import business.externalinterfaces.CartItem;
@@ -475,5 +476,32 @@ public class DbQueries {
 		results = DbQueries.insertCatalogRow();
 		System.out.println("id = " + Integer.parseInt(results[1]));
 		DbQueries.deleteCatalogRow(Integer.parseInt(results[1]));*/
+	}
+	public static CreditCardImpl readCreditcard(String custId)
+	{
+		String query= "select nameoncard,expdate,cardtype,cardnum  "+
+                "FROM Customer "+
+                "WHERE custid = "+custId;;
+		CreditCardImpl creditcard=null;
+		try
+		{
+			stmt=acctCon.createStatement();
+			ResultSet rs=stmt.executeQuery(query);
+			
+			if(rs.next())
+			{
+				String nameOnCard=rs.getString("nameoncard");
+				String expirationDate=rs.getString("expdate");
+				String cardNum=rs.getString("cardnum");
+				String cardType=rs.getString("cardtype");
+				creditcard=new CreditCardImpl(nameOnCard, expirationDate, cardNum, cardType);
+			}
+			 stmt.close(); 
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return creditcard;
 	}
 }

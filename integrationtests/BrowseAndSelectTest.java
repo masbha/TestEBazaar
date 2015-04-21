@@ -8,6 +8,7 @@ import junit.framework.TestCase;
 import middleware.exceptions.DatabaseException;
 import alltests.AllTests;
 import business.exceptions.BackendException;
+import business.externalinterfaces.Catalog;
 import business.externalinterfaces.ProductSubsystem;
 import business.productsubsystem.ProductSubsystemFacade;
 import dbsetup.DbQueries;
@@ -59,7 +60,4 @@ public class BrowseAndSelectTest extends TestCase {
 			
 		}
 	}
-
-	
-
 }
