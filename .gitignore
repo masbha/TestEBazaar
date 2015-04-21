@@ -4,4 +4,8 @@ DesignNotes
 /bin/
 .project
 .DS_Store
+.classpath
+/lib/
+lib/*
+alltests/*.class
 

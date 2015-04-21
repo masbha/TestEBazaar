@@ -5,6 +5,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/3"/>
 	<classpathentry kind="lib" path="lib/junit.jar"/>
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.20-bin.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/ebazaar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ebazaar-beta1"/>
 	<classpathentry kind="output" path=""/>
 </classpath>
