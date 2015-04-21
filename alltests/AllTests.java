@@ -55,6 +55,7 @@ public class AllTests extends TestSuite {
 		
 		suite.addTest(new TestSuite(integrationtests.BrowseAndSelectTest.class));
 		suite.addTest(new TestSuite(daotests.DbClassAddressTest.class));
+		suite.addTest(new TestSuite(daotests.DbClassCreditCard.class));
 		suite.addTest(new TestSuite(integrationtests.MaintainProductTest.class));
 		suite.addTest(new TestSuite(daotests.DbClassCatalogTypesTest.class));
 		suite.addTest(new TestSuite(daotests.DbClassShoppingCartTest.class));
@@ -64,6 +65,7 @@ public class AllTests extends TestSuite {
 		suite.addTest(new TestSuite(unittests.middleware.dataaccess.SimpleConnectionPoolTest.class));
 		suite.addTest(new TestSuite(subsystemtests.ProductSubsystemTest.class));
 		suite.addTest(new TestSuite(subsystemtests.ShoppingCartSubsystemTest.class));
+		
 		
 		//$JUnit-END$
 		return suite;
