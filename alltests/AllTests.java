@@ -59,12 +59,14 @@ public class AllTests extends TestSuite {
 		suite.addTest(new TestSuite(integrationtests.MaintainProductTest.class));
 		suite.addTest(new TestSuite(daotests.DbClassCatalogTypesTest.class));
 		suite.addTest(new TestSuite(daotests.DbClassShoppingCartTest.class));
+		suite.addTest(new TestSuite(daotests.DbClassOrderTest.class));
 		suite.addTest(new TestSuite(performancetests.RulesPerformanceTests.class));
 		suite.addTest(new TestSuite(performancetests.RulesPerformanceTests.class));
 		suite.addTest(new TestSuite(unittests.business.StringParseTest.class));
 		suite.addTest(new TestSuite(unittests.middleware.dataaccess.SimpleConnectionPoolTest.class));
 		suite.addTest(new TestSuite(subsystemtests.ProductSubsystemTest.class));
 		suite.addTest(new TestSuite(subsystemtests.ShoppingCartSubsystemTest.class));
+		suite.addTest(new TestSuite(subsystemtests.OrderSubsystemTest.class));
 		
 		
 		//$JUnit-END$

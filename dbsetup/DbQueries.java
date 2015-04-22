@@ -504,4 +504,91 @@ public class DbQueries {
 		
 		return creditcard;
 	}
+	
+	//------- START Order Test Related (Done By Tasid) -----------------------//
+	
+	/**
+	 * Returns a List of Order Ids:
+	 * 
+	 */
+	public static List<Integer> readAllOrderIds() {
+		String query = readAllOrderSql();
+		List<Integer> orderList = new LinkedList<Integer>();
+		try {
+			stmt = acctCon.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+            while(rs.next()) { 
+                int orderId = rs.getInt("orderid");
+
+               orderList.add(orderId);
+            }  
+            stmt.close();
+	            
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+			
+		}
+		return orderList;
+		
+	}
+	
+	///queries
+	public static String readAllOrderSql() {
+		return "SELECT * from ord WHERE custid = 1";
+	}
+	
+	/**
+	 * Returns a String[] with values:
+	 * 0 - query
+	 * 1 - orderId
+	 *
+	 */
+	public static String[] insertOrderRow() {
+		String[] vals = saveOrderSql();
+		String query = vals[0];
+		try {
+			stmt = acctCon.createStatement();
+			
+			stmt.executeUpdate(query,Statement.RETURN_GENERATED_KEYS);
+			ResultSet rs = stmt.getGeneratedKeys();
+			if(rs.next()) {
+				vals[1] = (new Integer(rs.getInt(1)).toString());
+				
+			}
+			stmt.close();
+			
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return vals;
+	}
+	
+	public static String[] saveOrderSql() {
+		String[] vals = new String[4];
+		vals[0] =
+		"INSERT into Ord "+
+		"(custid,orderdate,totalpriceamount) " +
+		"VALUES(1,'04/22/2014',100)";				  
+		return vals;
+	}
+	
+	
+	public static void deleteOrderRow(Integer orderId) {
+		try {
+			stmt = acctCon.createStatement();
+			stmt.executeUpdate(deleteOrderSql(orderId));
+			stmt.close();
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static String deleteOrderSql(Integer orderId) {
+		return "DELETE FROM ord WHERE orderid = "+orderId;
+	}
+	
+	//-------END Order Test Related (Done By Tasid) -----------------------//
 }
